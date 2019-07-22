@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>TODO</title>
+<style>
+#app {
+	padding-left:500px;
+	padding-top:250px;
+}
+
+#rock {
+	width: 100px;
+	height: 50px;
+}
+
+#space {
+	padding: 10px 135px;
+}
+
+.TODO {
+	display: flex;
+}
+</style>
+</head>
+<body>
+<script src="vue.js"></script>
+<h1 style="text-align:center;">TODO</h1>
+<div id="app">
+<input type = "text" size="50" id="to">
+<div id = "space">
+<button id="rock" v-on:click="Add()">Add</button>
+</div>
+<ul>
+<li v-for="todo in todos" :key = "todo.id" class="TODO">
+<label>
+<input type="checkbox" v-model="todo.done">
+<del v-if="todo.done">{{ todo.text }}</del>
+<span v-else>{{ todo.text }}</span>
+<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+<button class="close" v-on:click="Subtract(todo.id)">X</button>
+</li>
+</ul>
+</div>
+<script src="app.js">
+</script>
+</body>
+</html>
